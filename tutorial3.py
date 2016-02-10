@@ -42,11 +42,13 @@ def spaceKey(event):
 # Handle the "reverse" key
 def reverseKey(event):
     reverse(ball)
+    pop.play()
 
 # Handle the mouse click
 def mouseClick(event):
     ball.x = event.x
     ball.y = event.y
+    pew1.play()
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
