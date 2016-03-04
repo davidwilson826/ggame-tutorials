@@ -17,20 +17,24 @@ class SpaceShip(Sprite):
 
     def __init__(self, position):
         super().__init__(SpaceShip.asset, position)
-        self.vx = 1
-        self.vy = 1
-        self.vr = 0.01
+#        self.vx = 1
+#        self.vy = 1
+        self.vr = 0.05
         self.thrust = 0
         self.thrustframe = 1
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.rotateLeft)
         SpaceGame.listenKeyEvent("keydown", "right arrow", self.rotateRight)
+        SpaceGame.listenKeyEvent("keydown", "w", self.moveUp)
+        SpaceGame.listenKeyEvent("keydown", "s", self.moveDown)
+        SpaceGame.listenKeyEvent("keydown", "d", self.moveRight)
+        SpaceGame.listenKeyEvent("keydown", "a", self.moveLeft)
         self.fxcenter = self.fycenter = 0.5
 
     def step(self):
-        self.x += self.vx
-        self.y += self.vy
+#        self.x += self.vx
+#        self.y += self.vy
         if self.thrust == 1:
             self.setImage(self.thrustframe)
             self.thrustframe += 1
@@ -50,6 +54,18 @@ class SpaceShip(Sprite):
         
     def rotateRight(self, event):
         self.rotation -= self.vr
+        
+    def moveUp(self, event):
+        self.y -= 1
+        
+    def moveDown(self, event):
+        self.y += 1
+        
+    def moveRight(self, event):
+        self.x += 1
+        
+    def moveLeft(self, event):
+        self.x -= 1
 
 
 
