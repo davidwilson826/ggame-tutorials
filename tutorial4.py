@@ -1,6 +1,7 @@
 """
 tutorial4.py
-by E. Dennison
+by David Wilson
+Credit: E. Dennison
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
