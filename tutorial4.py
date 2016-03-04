@@ -15,6 +15,10 @@ class SpaceShip(Sprite):
         self.vx = 1
         self.vy = 1
         self.vr = 0.01
+        self.thrust = 0
+        self.thrustframe = 1
+        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
+        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         self.fxcenter = self.fycenter = 0.5
 
     def step(self):
@@ -48,10 +52,6 @@ class SpaceGame(App):
         SpaceShip((100,100))
         SpaceShip((150,150))
         SpaceShip((200,50))
-        self.thrust = 0
-        self.thrustframe = 1
-        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
